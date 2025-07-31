@@ -12,22 +12,27 @@ BASE_MODEL = 'name2gender-base'
 SMALL_MODEL = 'name2gender-small'
 
 
-def download_model(model_name: str, quiet: bool = False):
+def download_model(model_name: str):
+    quiet = bool(os.getenv('QUIET_DOWNLOAD', False))
     os.makedirs(__CACHE_DIR__, exist_ok=True)
     _proxies = {
         'http': os.getenv('HTTP_PROXY', os.getenv('http_proxy')),
         'https': os.getenv('HTTPS_PROXY', os.getenv('https_proxy'))
     }
+    model_name = f'{model_name}.dlx'
     model_path = os.path.join(__CACHE_DIR__, model_name)
+    base_url = 'https://github.com/vortezwohl/Name2Gender'
     if not os.path.exists(model_path):
-        url = f'https://github.com/vortezwohl/Name2Gender/releases/download/RESOURCE/{model_name}.dlx'
-        if requests.get(url=url, proxies=_proxies).status_code == 200:
+        url = f'{base_url}/releases/download/RESOURCE/{model_name}'
+        if requests.get(url=base_url, proxies=_proxies).status_code == 200:
             try:
                 gdown.download(
                     url=url,
                     output=model_path,
                     quiet=quiet,
-                    proxy=_proxies.get('https')
+                    proxy=_proxies.get('https'),
+                    speed=8192 * 1024,
+                    resume=True
                 )
             except Exception as e:
                 os.remove(model_path)
