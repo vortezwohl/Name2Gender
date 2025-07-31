@@ -2,12 +2,13 @@ import os
 
 import requests
 import gdown
-from deeplotx import LogisticRegression
+import torch
+from deeplotx import LogisticRegression, Encoder
 from deeplotx.nn import BaseNeuralNetwork
 
 from name2gender import __CACHE_DIR__
 
-
+ENCODER = Encoder(model_name_or_path='FacebookAI/xlm-roberta-base')
 BASE_MODEL = 'name2gender-base'
 SMALL_MODEL = 'name2gender-small'
 
@@ -41,7 +42,7 @@ def download_model(model_name: str):
             raise ConnectionError(f'Failed to download model {model_name}.')
 
 
-def load_model(model_name: str = 'name2gender-small') -> BaseNeuralNetwork:
+def load_model(model_name: str = 'name2gender-small', dtype: torch.dtype | None = None) -> BaseNeuralNetwork:
     n2g_model = None
     match model_name:
         case 'name2gender-base' | 'n2g-base' | 'base':
@@ -49,17 +50,17 @@ def load_model(model_name: str = 'name2gender-small') -> BaseNeuralNetwork:
             n2g_model = LogisticRegression(input_dim=768, output_dim=1,
                                            num_heads=12, num_layers=4,
                                            head_layers=1, expansion_factor=2,
-                                           model_name=BASE_MODEL)
+                                           model_name=BASE_MODEL, dtype=dtype)
         case 'name2gender-small' | 'n2g-base' | 'small':
             download_model(SMALL_MODEL)
             n2g_model = LogisticRegression(input_dim=768, output_dim=1,
                                            num_heads=6, num_layers=2,
                                            head_layers=1, expansion_factor=1.5,
-                                           model_name=SMALL_MODEL)
+                                           model_name=SMALL_MODEL, dtype=dtype)
         case _:
             download_model(SMALL_MODEL)
             n2g_model = LogisticRegression(input_dim=768, output_dim=1,
                                            num_heads=6, num_layers=2,
                                            head_layers=1, expansion_factor=1.5,
-                                           model_name=SMALL_MODEL)
+                                           model_name=SMALL_MODEL, dtype=dtype)
     return n2g_model.load(model_dir=__CACHE_DIR__)
