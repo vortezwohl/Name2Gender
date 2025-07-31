@@ -42,7 +42,7 @@ def download_model(model_name: str):
             raise ConnectionError(f'Failed to download model {model_name}.')
 
 
-def load_model(model_name: str = 'name2gender-small', dtype: torch.dtype | None = None) -> BaseNeuralNetwork:
+def load_model(model_name: str = 'name2gender-small', dtype: torch.dtype | None = torch.float16) -> BaseNeuralNetwork:
     n2g_model = None
     match model_name:
         case 'name2gender-base' | 'n2g-base' | 'base':

@@ -9,7 +9,7 @@ class Name2Gender:
     def __init__(self, model: BaseNeuralNetwork | None = None):
         super().__init__()
         if model is None:
-            model = load_model(SMALL_MODEL, dtype=torch.float32)
+            model = load_model(SMALL_MODEL)
         self._model = model
 
     def __call__(self, name: str, return_probability: bool = False, threshold: float = .5) -> tuple[Gender, float] | Gender:
