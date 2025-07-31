@@ -18,17 +18,13 @@ def main():
 @click.option('--model', '-m', default='small', type=str, help='name2gender model')
 def predict(name: str, threshold: float, model: str):
     n2g = Name2Gender(load_model(model_name=model))
-    if not name:
-        click.echo('Please provide at least one name.', err=True)
     gender, prob = n2g(name=name, return_probability=True, threshold=threshold)
     click.echo(f'"{name}" is {gender.value.upper()} with an probability of {prob * 100:.2f}%.')
 
 
 @main.command()
-@click.argument('model', default='name2gender-small', required=False)
+@click.argument('model', default='name2gender-small', required=True)
 def install(model: str):
-    if not model:
-        click.echo('Please provide the model name.', err=True)
     try:
         download_model(model_name=model)
         click.echo(f'Successfully installed model "{model}".')
@@ -37,10 +33,8 @@ def install(model: str):
 
 
 @main.command()
-@click.argument('model', required=False)
+@click.argument('model', required=True)
 def uninstall(model: str):
-    if not model:
-        click.echo('Please provide the model name.', err=True)
     path = os.path.join(__CACHE_DIR__, model)
     if os.path.exists(path):
         os.remove(path)
