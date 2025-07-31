@@ -9,4 +9,4 @@ if __name__ == '__main__':
              'Elizabeth II', 'Henry VIII']
     for name in names:
         _gender, _prob = n2g(name, return_probability=True)
-        print(name, 'is', _gender, 'with an probability of', f'{_prob * 100:.2f}%')
+        print(name, 'is', _gender, 'with a probability of', f'{_prob * 100:.2f}%')

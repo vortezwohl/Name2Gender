@@ -7,7 +7,7 @@ from name2gender.model import __CACHE_DIR__
 
 
 @click.group()
-@click.version_option(version='0.0.3.alpha')
+@click.version_option(version='0.0.4.alpha')
 def main():
     ...
 
@@ -19,7 +19,7 @@ def main():
 def predict(name: str, threshold: float, model: str):
     n2g = Name2Gender(load_model(model_name=model))
     gender, prob = n2g(name=name, return_probability=True, threshold=threshold)
-    click.echo(f'"{name}" is {gender.value.upper()} with an probability of {prob * 100:.2f}%.')
+    click.echo(f'"{name}" is <{gender.value.upper()}> with a probability of {prob * 100:.2f}%.')
 
 
 @main.command()
