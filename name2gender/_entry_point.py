@@ -41,7 +41,6 @@ def install(model: str):
 def uninstall(model: str):
     if not model:
         click.echo('Please provide the model name.', err=True)
-    # try:
     path = os.path.join(__CACHE_DIR__, model)
     if os.path.exists(path):
         os.remove(path)
