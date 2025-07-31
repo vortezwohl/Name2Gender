@@ -1,6 +1,6 @@
 # Name2Gender
 
-From names in multiple languages to gender.
+From names in multiple languages to genders.
 
 ## Installation
 
