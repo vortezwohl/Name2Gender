@@ -1,5 +1,5 @@
-from deeplotx.nn import BaseNeuralNetwork
 from name4py import Gender
+from deeplotx.nn import BaseNeuralNetwork
 
 from name2gender.model import load_model, SMALL_MODEL, ENCODER
 
