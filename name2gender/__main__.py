@@ -1,4 +1,3 @@
-import torch
 from deeplotx.nn import BaseNeuralNetwork
 from name4py import Gender
 
