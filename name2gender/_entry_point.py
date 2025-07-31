@@ -7,7 +7,7 @@ from name2gender.model import __CACHE_DIR__
 
 
 @click.group()
-@click.version_option(version='0.0.2.alpha')
+@click.version_option(version='0.0.3.alpha')
 def main():
     ...
 
