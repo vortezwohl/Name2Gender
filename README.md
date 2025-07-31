@@ -34,8 +34,15 @@ pip install git+https://github.com/vortezwohl/Name2Gender.git
 
     ```python
     n2g = Name2Gender()
-    print(n2g('吴子豪'))
-    print(n2g('Donald Trump', return_probability=True))
+    names = ['吴子豪', '吴彦祖', '梅艳芳', '张曼玉',
+             'Donald Trump', 'Ivanka Trump',
+             'Justin Bieber', 'The Weeknd',
+             'Luigi Nicholas Mangione',
+             'Elizabeth II', 'Henry VIII']
+    for name in names:
+        _gender, _prob = n2g(name, return_probability=True)
+        print(name, 'is', _gender, 'with an probability of', f'{_prob * 100:.2f}%')
+
     ```
 
     stdout:

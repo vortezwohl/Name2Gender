@@ -2,5 +2,11 @@ from name2gender import Name2Gender
 
 if __name__ == '__main__':
     n2g = Name2Gender()
-    print(n2g('Otto', return_probability=True))
-    print(n2g('Jane', return_probability=True))
+    names = ['吴子豪', '吴彦祖', '梅艳芳', '张曼玉',
+             'Donald Trump', 'Ivanka Trump',
+             'Justin Bieber', 'The Weeknd',
+             'Luigi Nicholas Mangione',
+             'Elizabeth II', 'Henry VIII']
+    for name in names:
+        _gender, _prob = n2g(name, return_probability=True)
+        print(name, 'is', _gender, 'with an probability of', f'{_prob * 100:.2f}%')

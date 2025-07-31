@@ -12,6 +12,7 @@ class Name2Gender:
         self._model = model
 
     def __call__(self, name: str, return_probability: bool = False, threshold: float = .5) -> tuple[Gender, float] | Gender:
+        assert len(name) > 0, f'name ({name}) cannot be empty.'
         name = f'{name[0].upper()}{name[1:]}'
         emb = ENCODER.encode(name)
         prob = self._model.predict(emb).item()
