@@ -11,6 +11,7 @@ from name2gender import __CACHE_DIR__
 ENCODER = Encoder(model_name_or_path='FacebookAI/xlm-roberta-base')
 BASE_MODEL = 'name2gender-base'
 SMALL_MODEL = 'name2gender-small'
+_MIN_FILE_SIZE = 1024 * 5
 
 
 def download_model(model_name: str):
@@ -35,6 +36,8 @@ def download_model(model_name: str):
                     speed=8192 * 1024,
                     resume=True
                 )
+                if os.path.getsize(model_path) < _MIN_FILE_SIZE:
+                    raise FileNotFoundError(f"Model \"{model_name}\" doesn't exists.")
             except Exception as e:
                 os.remove(model_path)
                 raise e
