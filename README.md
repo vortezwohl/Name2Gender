@@ -48,6 +48,15 @@ pip install git+https://github.com/vortezwohl/Name2Gender.git
     stdout:
 
     ```
-    Gender.Male
-    (<Gender.Male: 'male'>, 0.9990234375)
+   吴子豪 is Gender.Male with an probability of 99.71%
+   吴彦祖 is Gender.Male with an probability of 100.00%
+   梅艳芳 is Gender.Female with an probability of 99.99%
+   张曼玉 is Gender.Female with an probability of 99.92%
+   Donald Trump is Gender.Male with an probability of 99.90%
+   Ivanka Trump is Gender.Female with an probability of 99.66%
+   Justin Bieber is Gender.Male with an probability of 100.00%
+   The Weeknd is Gender.Male with an probability of 97.66%
+   Luigi Nicholas Mangione is Gender.Male with an probability of 99.27%
+   Elizabeth II is Gender.Female with an probability of 99.71%
+   Henry VIII is Gender.Male with an probability of 99.90%
     ```
