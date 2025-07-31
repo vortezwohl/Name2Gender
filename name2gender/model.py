@@ -1,4 +1,5 @@
 import os
+import logging
 
 import requests
 import gdown
@@ -8,6 +9,7 @@ from deeplotx.nn import BaseNeuralNetwork
 
 from name2gender import __CACHE_DIR__
 
+logging.getLogger('deeplotx.embedding').setLevel(logging.ERROR)
 ENCODER = Encoder(model_name_or_path='FacebookAI/xlm-roberta-base')
 BASE_MODEL = 'name2gender-base'
 SMALL_MODEL = 'name2gender-small'
