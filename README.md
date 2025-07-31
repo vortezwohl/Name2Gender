@@ -24,13 +24,13 @@ pip install git+https://github.com/vortezwohl/Name2Gender.git
 
 ## Quick Start
 
-1. Import SDKs
+1. **Import SDKs**
 
     ```python
     from name2gender import Name2Gender, Gender
     ```
 
-2. Gender recognition based on names
+2. **Gender recognition based on names**
 
     ```python
     n2g = Name2Gender()
@@ -48,15 +48,54 @@ pip install git+https://github.com/vortezwohl/Name2Gender.git
     stdout:
 
     ```
-   吴子豪 is Gender.Male with an probability of 99.71%
-   吴彦祖 is Gender.Male with an probability of 100.00%
-   梅艳芳 is Gender.Female with an probability of 99.99%
-   张曼玉 is Gender.Female with an probability of 99.92%
-   Donald Trump is Gender.Male with an probability of 99.90%
-   Ivanka Trump is Gender.Female with an probability of 99.66%
-   Justin Bieber is Gender.Male with an probability of 100.00%
-   The Weeknd is Gender.Male with an probability of 97.66%
-   Luigi Nicholas Mangione is Gender.Male with an probability of 99.27%
-   Elizabeth II is Gender.Female with an probability of 99.71%
-   Henry VIII is Gender.Male with an probability of 99.90%
+    吴子豪 is Gender.Male with an probability of 99.71%
+    吴彦祖 is Gender.Male with an probability of 100.00%
+    梅艳芳 is Gender.Female with an probability of 99.99%
+    张曼玉 is Gender.Female with an probability of 99.92%
+    Donald Trump is Gender.Male with an probability of 99.90%
+    Ivanka Trump is Gender.Female with an probability of 99.66%
+    Justin Bieber is Gender.Male with an probability of 100.00%
+    The Weeknd is Gender.Male with an probability of 97.66%
+    Luigi Nicholas Mangione is Gender.Male with an probability of 99.27%
+    Elizabeth II is Gender.Female with an probability of 99.71%
+    Henry VIII is Gender.Male with an probability of 99.90%
     ```
+
+## Use Name2Gender with CLI
+
+1. **Install model**
+
+    ```
+    n2g install name2gender-small
+    ```
+
+    stdout:
+
+    ```
+    Successfully installed model "name2gender-small".
+    ```
+
+2. **Predict genders**
+
+    ```
+    n2g predict LadyGaga
+    ```
+
+    stdout:
+
+    ```
+    "LadyGaga" is FEMALE with an probability of 99.64%.
+    ```
+
+3. **Uninstall model**
+
+    ```
+    n2g uninstall name2gender-small
+    ```
+
+    stdout:
+
+    ```
+    Model "name2gender-small" is uninstalled.
+    ```
+    
