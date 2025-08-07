@@ -1,14 +1,14 @@
 from name4py import Gender
 from deeplotx.nn import BaseNeuralNetwork
 
-from name2gender.model import load_model, SMALL_MODEL, ENCODER
+from name2gender.model import load_model, DEFAULT_MODEL, ENCODER
 
 
 class Name2Gender:
     def __init__(self, model: BaseNeuralNetwork | None = None):
         super().__init__()
         if model is None:
-            model = load_model(SMALL_MODEL)
+            model = load_model(DEFAULT_MODEL)
         self._model = model
 
     def __call__(self, name: str, return_probability: bool = False, threshold: float = .5) -> tuple[Gender, float] | Gender:
