@@ -15,7 +15,7 @@ def main():
 @main.command()
 @click.argument('name', required=True)
 @click.option('--threshold', '-t', default=.5, type=float, help='threshold for prediction')
-@click.option('--model', '-m', default='small', type=str, help='name2gender model')
+@click.option('--model', '-m', default='name2gender-small', type=str, help='name2gender model')
 def predict(name: str, threshold: float, model: str):
     n2g = Name2Gender(load_model(model_name=model))
     gender, prob = n2g(name=name, return_probability=True, threshold=threshold)

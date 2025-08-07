@@ -1,6 +1,6 @@
 [project]
 name = "name2gender"
-version = "0.0.5.alpha"
+version = "0.0.5"
 description = "From names in multiple languages to genders."
 readme = "README.md"
 requires-python = ">=3.10"
