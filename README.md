@@ -6,21 +6,21 @@ From names in multiple languages to genders.
 
 - From [PyPi](https://pypi.org/project/name2gender/)
 
-```
-pip install -U name2gender
-```
-
-or
-
-```
-uv add -U name2gender
-```
+    ```
+    pip install -U name2gender
+    ```
+    
+    or
+    
+    ```
+    uv add -U name2gender
+    ```
 
 - From [Github](https://github.com/vortezwohl/Name2Gender/releases)
 
-```
-pip install git+https://github.com/vortezwohl/Name2Gender.git
-```
+    ```
+    pip install git+https://github.com/vortezwohl/Name2Gender.git
+    ```
 
 ## Quick Start
 
@@ -61,7 +61,7 @@ pip install git+https://github.com/vortezwohl/Name2Gender.git
     Henry VIII is Gender.Male with a probability of 99.90%
     ```
 
-## Use Name2Gender with CLI
+## Use Name2Gender via CLI
 
 1. **Install model**
 
